@@ -37,10 +37,11 @@
 }
 
 #barraBusqueda {
-    margin-left: 30%;
+    margin-left: auto;
+    margin-right: 10px;
 }
 
-li{
+.li{
     margin: 0 50px;
 }
 
@@ -49,6 +50,12 @@ li{
         margin: 0 0 0 0;
         text-align: center;
     }
+
+    #barraBusqueda {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    
 
     .container {
         border: none;
