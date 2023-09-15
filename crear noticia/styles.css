@@ -1,0 +1,75 @@
+#barraBusqueda{
+    margin-left: 30%;
+}
+
+.container-frame{
+    border: 2px solid #090D65;
+    padding: 30px;
+    width: 520px;
+    margin: 0 auto;
+}
+
+.container-img{
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgnoticia{
+    width: 60px;
+    height: auto;
+    margin: 0%;
+}
+
+h1{
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.container-titulo {
+    display: flex;
+    width: 300px;
+    height: 25px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.container-tematica {
+    display: flex;
+    width: 300px;
+    height: 25px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.container-cuerpo {
+    display: flex;
+    width: 430px;
+    height: 190px;
+    margin-top: 30px;
+    margin-left: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.imgclip{
+    display: flex;
+    float: left;
+    width: 25px;
+    height: auto;
+    margin: 0%;
+    margin-right: 10px;
+}
+
+.boton-insertarimg{
+    display: flex;
+    width: 30px;
+}
+
+.boton-enviar{
+    display: flex;
+    float: right;
+}
