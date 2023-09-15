@@ -1,0 +1,69 @@
+.cuerpoNoticia{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: normal;
+}
+.Titulo{
+
+    font-weight: bold;
+
+}
+
+
+h2{
+        text-align: center;
+        font-weight: bold;
+        size: 10%;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.container{
+    background-color: white;
+    border: 3px blue solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.DatoNoticia{
+    text-align: left;
+    margin-left: 40px;
+}
+
+.articulo{
+    background-color: white;
+
+}
+
+.Texto{
+    border: 1px black solid;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.seccionComentarios
+{
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+.respuestas{
+    border: 1px black solid;    
+}
+
+li{
+    display: inline-block;
+    margin: 0 50px;
+}
+
+@media screen and (max-width: 460px){
+    .navbar-nav .nav-item {
+        margin: 0 0 0 0;
+        text-align: center;
+    }
+}
