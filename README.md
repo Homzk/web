@@ -5,7 +5,6 @@ Gonzalo Díaz
 Alvaro Flores
 Sebastián Brito
 
-Link a gitHub: https://github.com/Homzk/web/tree/master
 
 Link a figma: https://www.figma.com/files/project/104244787/Team-project?fuid=1276201049663912703
 
