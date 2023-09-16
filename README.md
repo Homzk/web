@@ -1,10 +1,6 @@
 # web
 Entrega Parcial #1 web
 
-Gonzalo Díaz
-Alvaro Flores
-Sebastián Brito
-
 
 Link a figma: https://www.figma.com/files/project/104244787/Team-project?fuid=1276201049663912703
 
