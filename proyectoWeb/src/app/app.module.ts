@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { VistaNoticiaComponent } from './pages/vista-noticia/vista-noticia.component';
+import { VistaForoComponent } from './pages/vista-foro/vista-foro.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    VistaNoticiaComponent
+    VistaNoticiaComponent,
+    VistaForoComponent,
   ],
   imports: [
     BrowserModule,
