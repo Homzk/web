@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { VistaNoticiaComponent } from './pages/vista-noticia/vista-noticia.component';
 import { VistaForoComponent } from './pages/vista-foro/vista-foro.component';
+import { VistaIngresarAlertaComponent } from './pages/vista-ingresar-alerta/vista-ingresar-alerta.component';
+import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-crear-noticia.component';
+import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
 
 
 @NgModule({
@@ -14,6 +17,9 @@ import { VistaForoComponent } from './pages/vista-foro/vista-foro.component';
     NavbarComponent,
     VistaNoticiaComponent,
     VistaForoComponent,
+    VistaIngresarAlertaComponent,
+    VistaCrearNoticiaComponent,
+    VistaInicioComponent,
   ],
   imports: [
     BrowserModule,
