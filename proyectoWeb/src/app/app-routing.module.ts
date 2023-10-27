@@ -6,6 +6,7 @@ import { VistaCarrouselComponent } from './pages/vista-carrousel/vista-carrousel
 import { VistaIngresarAlertaComponent } from './pages/vista-ingresar-alerta/vista-ingresar-alerta.component';
 import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-crear-noticia.component';
 import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
+import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-inicio-sesion.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,12 @@ const routes: Routes = [
   },
   {
     path: 'inicio', component: VistaInicioComponent
+  },
+  {
+    path: "", component: VistaInicioComponent
+  },
+  {
+    path:'login' , component: VistaInicioSesionComponent
   }
 ];
 

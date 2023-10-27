@@ -9,6 +9,7 @@ import { VistaForoComponent } from './pages/vista-foro/vista-foro.component';
 import { VistaIngresarAlertaComponent } from './pages/vista-ingresar-alerta/vista-ingresar-alerta.component';
 import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-crear-noticia.component';
 import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
+import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-inicio-sesion.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.componen
     VistaIngresarAlertaComponent,
     VistaCrearNoticiaComponent,
     VistaInicioComponent,
+    VistaInicioSesionComponent,
   ],
   imports: [
     BrowserModule,
