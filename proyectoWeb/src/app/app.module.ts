@@ -10,7 +10,7 @@ import { VistaIngresarAlertaComponent } from './pages/vista-ingresar-alerta/vist
 import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-crear-noticia.component';
 import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
 import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-inicio-sesion.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-in
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

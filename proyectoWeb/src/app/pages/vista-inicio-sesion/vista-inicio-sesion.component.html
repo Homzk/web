@@ -3,15 +3,24 @@
       <div class="col-md-6 text-center">
         <img src="../../../assets/images/ballena.png" alt="Logo de la empresa" class="logo mb-3">
         <h1 class="mb-3">Inicia sesión</h1>
-        <form class="needs-validation" novalidate>
-          <div class="mb-3">
-            <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" required>
-          </div>
-      
-          <div class="mb-3">
-            <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" required>
-          </div>
-          <button type="submit" class="btn btn-primary  mb-3 mt-3 justify-content-center">Iniciar sesión</button>
+        <form [formGroup]="formulario" (ngSubmit)="inicioSesion()" novalidate>
+            <div class="form-group">
+                <div class="mb-3 form-check">
+                    <div *ngIf="nombreUsuario.errors && nombreUsuario.dirty">
+                        <div *ngIf="nombreUsuario.hasError('required')" class="alert alert-danger">El nombre de usuario es obligatorio</div>
+                    </div>
+                    <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" formControlName = "nombreUsuario">
+                    
+                </div>
+            
+                <div class="mb-3 form-check">
+                    <div *ngIf="contrasenya.errors && contrasenya.dirty">
+                        <div *ngIf="contrasenya.hasError('required')" class="alert alert-danger">La contraseñas es obligatoria</div>
+                    </div>
+                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" formControlName = "contrasenya">
+                </div>
+            <button type="submit" class="btn btn-primary  mb-3 mt-3 justify-content-center" >Iniciar sesión</button>
+        </div>
         </form>
     </div>
   </div>
