@@ -8,7 +8,6 @@ import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-cr
 import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
 import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-inicio-sesion.component';
 import { VistaRegistroComponent } from './pages/vista-registro/vista-registro.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: 'noticia', component: VistaNoticiaComponent },

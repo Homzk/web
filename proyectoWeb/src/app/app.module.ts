@@ -10,7 +10,7 @@ import { VistaIngresarAlertaComponent } from './pages/vista-ingresar-alerta/vist
 import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-crear-noticia.component';
 import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
 import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-inicio-sesion.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule,ValidationErrors,ValidatorFn} from '@angular/forms';
 import { VistaRegistroComponent } from './pages/vista-registro/vista-registro.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

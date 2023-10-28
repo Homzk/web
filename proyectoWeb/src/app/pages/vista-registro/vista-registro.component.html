@@ -27,13 +27,13 @@
                     <input type="email" class="form-control" formControlName = "email" id="email" placeholder="E-mail" aria-label="E-mail" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <select class="form-select" id="region" autocomplete="off" name="region" required (change)="onRegionChange($event)">
+                    <select class="form-select" id="region" autocomplete="off" name="region" required (change)="onRegionChange($event)" formControlName ="region">
                         <option value="" disabled selected>Selecciona una región</option>
                         <option *ngFor="let region of regiones" [value]="region.id">{{ region.nombre }}</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <select class="form-select" id="comuna" autocomplete="off" name="comuna" required>
+                    <select class="form-select" id="comuna" autocomplete="off" name="comuna" required formControlName = "comuna">
                         <option selected disabled value="">Selecciona una comuna</option>
                         <option *ngFor="let comuna of comunas" [value]="comuna">{{ comuna }}</option>
                     </select>
@@ -52,12 +52,13 @@
                         
                     </div>
                     <input type="password" class="form-control" formControlName = "Ccontrasenya" id="Ccontraseña" placeholder="Confirmación de contraseña" aria-label="Confirmación de contraseña" name="Ccontraseña" required>
+                    <span *ngIf="formulario.errors?.['passwordmatcherror']">Las contraseñas no coinciden </span>
                 </div>
                 <div class="form-check mb-3">
-                    <input type="checkbox" class="form-check-input" id="aceptarTerminos" name="aceptarTerminos" required style="cursor: pointer;">
+                    <input type="checkbox" class="form-check-input" id="aceptarTerminos" name="aceptarTerminos" required style="cursor: pointer;" formControlName ="aceptarTerminos" >
                     <label class="form-check-label" for="aceptarTerminos">Acepto los términos y condiciones</label>
                 </div>
-                <button type="submit" (click)="registro()" class="btn btn-primary mb-3 justify-content-center">Registrarse</button>
+                <button type="submit"  (click)="registro()"   class="btn btn-primary mb-3 justify-content-center" >Registrarse</button>
             </form>
         </div>
     </div>
