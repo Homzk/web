@@ -32,13 +32,19 @@ $background-color_1: #1a529b8f;
 }
 .li {
 	margin: 0 100px;
+	list-style-type: none;
 }
 .ul {
 	margin: 0 50px;
+	list-style-type: none;
 }
 .navbar {
 	background-color: $background-color_1;
     padding: 0 30px;
+}
+
+#Logins{
+	margin: 0 10px;
 }
 @media screen and (max-width: 760px) {
 	.navbar-nav {
