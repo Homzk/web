@@ -3,14 +3,27 @@
         <div class="col-md-6 text-center">
             <img src="../../../assets/images/tortuga-marina.png" alt="Logo de la empresa" class="logo mb-3">
             <h1 class="mb-3">Regístrate</h1>
-            <form class="needs-validation" novalidate>
+            <form [formGroup]="formulario" (ngSubmit)="registro()" novalidate>
+            <!---<form class="needs-validation" novalidate>-->
                 <div class="mb-3">
+                    <div *ngIf="nombreUsuario.errors && nombreUsuario.dirty">
+                        <div *ngIf="nombreUsuario.hasError('required')" class="alert alert-danger">El nombre de usuario es obligatorio</div>
+                        <div *ngIf="nombreUsuario.hasError('minlength')" class="alert alert-danger">El nombre de usuario debe tener mínimo 4 caracter</div>
+                    </div>
                     <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" required>
                 </div>
                 <div class="mb-3">
+                    <div *ngIf="rut.errors && rut.dirty">
+                        <div *ngIf="rut.hasError('required')" class="alert alert-danger">El rut es obligatorio</div>
+                        <div *ngIf="rut.hasError('pattern')" class="alert alert-danger">El rut debe ser ingresado en el formato correcto</div>
+                    </div>
                     <input type="text" class="form-control" id="rut" placeholder="Rut" aria-label="Rut" name="rut" required>
                 </div>
                 <div class="mb-3">
+                    <div *ngIf="email.errors && email.dirty">
+                        <div *ngIf="email.hasError('required')" class="alert alert-danger">El email es obligatorio</div>
+                        <div *ngIf="email.hasError('email')" class="alert alert-danger">El email debe ser ingresado en el formato correcto</div>
+                    </div>
                     <input type="email" class="form-control" id="email" placeholder="E-mail" aria-label="E-mail" name="email" required>
                 </div>
                 <div class="mb-3">
@@ -26,9 +39,18 @@
                     </select>
                 </div>
                 <div class="mb-3">
+                    <div *ngIf="contrasenya.errors && contrasenya.dirty">
+                        <div *ngIf="contrasenya.hasError('required')" class="alert alert-danger">La contraseña es obligatoria</div>
+                        <div *ngIf="contrasenya.hasError('minlength')" class="alert alert-danger">La contraseña debe tener mínimo 8 caracteres</div>
+                        <div *ngIf="contrasenya.hasError('pattern')" class="alert alert-danger">la contraseña debe tener letras, numeros y al menos una mayuscula</div>
+                    </div>
                     <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" required>
                 </div>
                 <div class="mb-3">
+                    <div *ngIf="Ccontrasenya.errors && Ccontrasenya.dirty">
+                        <div *ngIf="contrasenya.hasError('required')" class="alert alert-danger">Confirme contraseña</div>
+                        
+                    </div>
                     <input type="password" class="form-control" id="Ccontraseña" placeholder="Confirmación de contraseña" aria-label="Confirmación de contraseña" name="Ccontraseña" required>
                 </div>
                 <div class="form-check mb-3">

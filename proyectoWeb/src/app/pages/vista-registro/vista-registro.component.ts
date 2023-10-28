@@ -27,7 +27,8 @@ export class VistaRegistroComponent implements OnInit {
   aceptarTerminos: AbstractControl;
 
 
-  constructor(private regionesService: RegionesService, private comunasService: ComunasService, private formBuilder: FormBuilder) {
+  constructor(private regionesService: RegionesService, private comunasService: ComunasService, private formBuilder: FormBuilder) 
+  {
     this.formulario = this.formBuilder.group({
       nombreUsuario: ['', [Validators.required,Validators.minLength(4)]],
       rut: ['', [Validators.required, Validators.pattern(this.patronRut)]],
@@ -60,12 +61,15 @@ export class VistaRegistroComponent implements OnInit {
       this.comunas = comunas[selectedRegionId] || [];
     });
   }
-  
+
   confCheck(control: AbstractControl): { [key: string]: any } | null {
     const contrasenya = control.value;
     const confirmacionContrasenya = control.value;
     return contrasenya === confirmacionContrasenya ? null : { 'confInvalid': true };
   }
-}
 
+  registro(){
+
+  }
+}
 
