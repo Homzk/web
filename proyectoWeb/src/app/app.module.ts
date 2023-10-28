@@ -11,6 +11,9 @@ import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-cr
 import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
 import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-inicio-sesion.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VistaRegistroComponent } from './pages/vista-registro/vista-registro.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -22,11 +25,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VistaCrearNoticiaComponent,
     VistaInicioComponent,
     VistaInicioSesionComponent,
+    VistaRegistroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

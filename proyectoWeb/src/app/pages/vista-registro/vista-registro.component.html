@@ -1,0 +1,41 @@
+<div class="container" style="max-width: 600px;">
+    <div class="row justify-content-center mt-4 mb-3">
+        <div class="col-md-6 text-center">
+            <img src="../../../assets/images/tortuga-marina.png" alt="Logo de la empresa" class="logo mb-3">
+            <h1 class="mb-3">Regístrate</h1>
+            <form class="needs-validation" novalidate>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" required>
+            </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="rut" placeholder="Rut" aria-label="Rut" name="rut" required>
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="E-mail" aria-label="E-mail" name="email" required>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" id="region" autocomplete="off" name="region" required>
+                <option value="" disabled selected>Selecciona una región</option>
+                <option *ngFor="let region of regiones" [value]="region.nombre">{{ region.nombre }}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" id="comuna" autocomplete="off" name="comuna" required>
+                <option selected disabled value="">Selecciona una comuna</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="Ccontraseña" placeholder="Confirmación de contraseña" aria-label="Confirmación de contraseña" name="Ccontraseña" required>
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="aceptarTerminos" name="aceptarTerminos" required style="cursor: pointer;">
+            <label class="form-check-label" for="aceptarTerminos">Acepto los términos y condiciones</label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3 justify-content-center">Registrarse</button>
+        </form>
+        </div>
+    </div>
+</div>
