@@ -10,16 +10,17 @@ export class VistaInicioSesionComponent implements OnInit{
   formulario: FormGroup;
   nombreUsuario: AbstractControl;
   contrasenya: AbstractControl;
-
+  patronContrasenya = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)$";
 
   constructor(private form:FormBuilder)
   {
     this.formulario = this.form.group({
       nombreUsuario : ['',[Validators.required,Validators.minLength(4)]],
-      contrasenya : ['',Validators.required,Validators.minLength(8)]
+      contrasenya : ['',Validators.required,Validators.minLength(8),Validators.pattern(this.patronContrasenya)]
     });
     this.nombreUsuario = this.formulario.controls['nombreUsuario']
     this.contrasenya = this.formulario.controls['contrasenya']
+
   }
 
   ngOnInit(): void {
@@ -28,4 +29,5 @@ export class VistaInicioSesionComponent implements OnInit{
   inicioSesion(){
 
   }
+  
 }

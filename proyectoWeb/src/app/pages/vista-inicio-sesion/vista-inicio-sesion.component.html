@@ -18,8 +18,9 @@
                     <div *ngIf="contrasenya.errors && contrasenya.dirty">
                         <div *ngIf="contrasenya.hasError('required')" class="alert alert-danger">La contraseñas es obligatoria</div>
                         <div *ngIf="contrasenya.hasError('minlength')" class="alert alert-danger">La contraseña debe tener mínimo 8 caracteres</div>
+                        <div *ngIf="contrasenya.hasError('pattern')" class="alert alert-danger">la contraseña debe tener letras, numeros y al menos una mayuscula</div>
                     </div>
-                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" formControlName = "contrasenya" ngModel minlength="4">
+                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" formControlName = "contrasenya" ngModel minlength="8">
                 </div>
             <button type="submit" class="btn btn-primary  mb-3 mt-3 justify-content-center" >Iniciar sesión</button>
         </div>
