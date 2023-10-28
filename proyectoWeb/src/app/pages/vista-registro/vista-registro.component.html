@@ -15,7 +15,7 @@
                 <div class="mb-3">
                     <div *ngIf="rut.errors && rut.dirty">
                         <div *ngIf="rut.hasError('required')" class="alert alert-danger">El rut es obligatorio</div>
-                        <div *ngIf="rut.hasError('pattern')" class="alert alert-danger">El rut debe ser ingresado en el formato correcto</div>
+                        <div *ngIf="rut.hasError('pattern')" class="alert alert-danger">El rut debe ser ingresado en el formato XX.XXX.XXX-X</div>
                     </div>
                     <input type="text" class="form-control" formControlName = "rut" id="rut" placeholder="Rut" aria-label="Rut" name="rut" required>
                 </div>
