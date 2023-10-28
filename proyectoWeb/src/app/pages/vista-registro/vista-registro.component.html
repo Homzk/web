@@ -52,7 +52,7 @@
                         
                     </div>
                     <input type="password" class="form-control" formControlName = "Ccontrasenya" id="Ccontraseña" placeholder="Confirmación de contraseña" aria-label="Confirmación de contraseña" name="Ccontraseña" required>
-                    <span *ngIf="formulario.errors?.['passwordmatcherror']">Las contraseñas no coinciden </span>
+                    <span class="is-invalid"*ngIf="formulario.errors?.['passwordmatcherror'] ">Las contraseñas no coinciden </span>
                 </div>
                 <div class="form-check mb-3">
                     <input type="checkbox" class="form-check-input" id="aceptarTerminos" name="aceptarTerminos" required style="cursor: pointer;" formControlName ="aceptarTerminos" >
