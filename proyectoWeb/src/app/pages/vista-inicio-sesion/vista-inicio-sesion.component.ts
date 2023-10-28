@@ -15,8 +15,8 @@ export class VistaInicioSesionComponent implements OnInit{
   constructor(private form:FormBuilder)
   {
     this.formulario = this.form.group({
-      nombreUsuario : ['',[Validators.required]],
-      contrasenya : ['',Validators.required]
+      nombreUsuario : ['',[Validators.required,Validators.minLength(4)]],
+      contrasenya : ['',Validators.required,Validators.minLength(8)]
     });
     this.nombreUsuario = this.formulario.controls['nombreUsuario']
     this.contrasenya = this.formulario.controls['contrasenya']

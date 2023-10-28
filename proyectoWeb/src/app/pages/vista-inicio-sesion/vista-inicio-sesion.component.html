@@ -8,16 +8,18 @@
                 <div class="mb-3 form-check">
                     <div *ngIf="nombreUsuario.errors && nombreUsuario.dirty">
                         <div *ngIf="nombreUsuario.hasError('required')" class="alert alert-danger">El nombre de usuario es obligatorio</div>
+                        <div *ngIf="nombreUsuario.hasError('minlength')" class="alert alert-danger">El nombre de usuario debe tener mínimo 4 caracter</div>
                     </div>
-                    <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" formControlName = "nombreUsuario">
+                    <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" formControlName = "nombreUsuario" ngModel minlength="4">
                     
                 </div>
             
                 <div class="mb-3 form-check">
                     <div *ngIf="contrasenya.errors && contrasenya.dirty">
                         <div *ngIf="contrasenya.hasError('required')" class="alert alert-danger">La contraseñas es obligatoria</div>
+                        <div *ngIf="contrasenya.hasError('minlength')" class="alert alert-danger">La contraseña debe tener mínimo 8 caracteres</div>
                     </div>
-                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" formControlName = "contrasenya">
+                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" formControlName = "contrasenya" ngModel minlength="4">
                 </div>
             <button type="submit" class="btn btn-primary  mb-3 mt-3 justify-content-center" >Iniciar sesión</button>
         </div>
