@@ -10,21 +10,21 @@
                         <div *ngIf="nombreUsuario.hasError('required')" class="alert alert-danger">El nombre de usuario es obligatorio</div>
                         <div *ngIf="nombreUsuario.hasError('minlength')" class="alert alert-danger">El nombre de usuario debe tener mínimo 4 caracter</div>
                     </div>
-                    <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" required>
+                    <input type="text" class="form-control" formControlName = "nombreUsuario" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" required>
                 </div>
                 <div class="mb-3">
                     <div *ngIf="rut.errors && rut.dirty">
                         <div *ngIf="rut.hasError('required')" class="alert alert-danger">El rut es obligatorio</div>
                         <div *ngIf="rut.hasError('pattern')" class="alert alert-danger">El rut debe ser ingresado en el formato correcto</div>
                     </div>
-                    <input type="text" class="form-control" id="rut" placeholder="Rut" aria-label="Rut" name="rut" required>
+                    <input type="text" class="form-control" formControlName = "rut" id="rut" placeholder="Rut" aria-label="Rut" name="rut" required>
                 </div>
                 <div class="mb-3">
                     <div *ngIf="email.errors && email.dirty">
                         <div *ngIf="email.hasError('required')" class="alert alert-danger">El email es obligatorio</div>
                         <div *ngIf="email.hasError('email')" class="alert alert-danger">El email debe ser ingresado en el formato correcto</div>
                     </div>
-                    <input type="email" class="form-control" id="email" placeholder="E-mail" aria-label="E-mail" name="email" required>
+                    <input type="email" class="form-control" formControlName = "email" id="email" placeholder="E-mail" aria-label="E-mail" name="email" required>
                 </div>
                 <div class="mb-3">
                     <select class="form-select" id="region" autocomplete="off" name="region" required (change)="onRegionChange($event)">
@@ -44,14 +44,14 @@
                         <div *ngIf="contrasenya.hasError('minlength')" class="alert alert-danger">La contraseña debe tener mínimo 8 caracteres</div>
                         <div *ngIf="contrasenya.hasError('pattern')" class="alert alert-danger">la contraseña debe tener letras, numeros y al menos una mayuscula</div>
                     </div>
-                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" required>
+                    <input type="password" class="form-control" formControlName = "contrasenya" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" required>
                 </div>
                 <div class="mb-3">
                     <div *ngIf="Ccontrasenya.errors && Ccontrasenya.dirty">
                         <div *ngIf="contrasenya.hasError('required')" class="alert alert-danger">Confirme contraseña</div>
                         
                     </div>
-                    <input type="password" class="form-control" id="Ccontraseña" placeholder="Confirmación de contraseña" aria-label="Confirmación de contraseña" name="Ccontraseña" required>
+                    <input type="password" class="form-control" formControlName = "Ccontrasenya" id="Ccontraseña" placeholder="Confirmación de contraseña" aria-label="Confirmación de contraseña" name="Ccontraseña" required>
                 </div>
                 <div class="form-check mb-3">
                     <input type="checkbox" class="form-check-input" id="aceptarTerminos" name="aceptarTerminos" required style="cursor: pointer;">

@@ -10,7 +10,7 @@
                         <div *ngIf="nombreUsuario.hasError('required')" class="alert alert-danger">El nombre de usuario es obligatorio</div>
                         <div *ngIf="nombreUsuario.hasError('minlength')" class="alert alert-danger">El nombre de usuario debe tener mínimo 4 caracter</div>
                     </div>
-                    <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" formControlName = "nombreUsuario" ngModel minlength="4">
+                    <input type="text" class="form-control" formControlName = "nombreUsuarios" id="nombreUsuario" placeholder="Nombre de Usuario" aria-label="Nombre de Usuario" name="nombreUsuario" formControlName = "nombreUsuario" ngModel minlength="4">
                     
                 </div>
             
