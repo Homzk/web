@@ -20,9 +20,15 @@
     
 }
 
-
 .is-invalid {
     color: rgb(182, 4, 4);
+    font-size: small;
+    position:static;
+}
+
+
+.is-valid {
+    color: rgb(16, 214, 16);
     font-size: small;
     position:static;
 }
