@@ -16,7 +16,6 @@ export class VistaRegistroComponent implements OnInit {
   
   formulario: FormGroup;
   patronRut =  "/^\d{7,8}-[kK\d]{1}$/";
-  patronContrasenya = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)$";
   nombreUsuario: AbstractControl;
   rut: AbstractControl;
   email: AbstractControl;
@@ -31,11 +30,11 @@ export class VistaRegistroComponent implements OnInit {
   {
     this.formulario = this.formBuilder.group({
       nombreUsuario: ['', [Validators.required,Validators.minLength(4)]],
-      rut: ['', [Validators.required, Validators.pattern(this.patronRut)]],
+      rut: ['', [Validators.required, Validators.pattern('/^\d{7,8}-[kK\d]{1}$/')]],
       email: ['', [Validators.required, Validators.email]],
       region: ['', Validators.required],
       comuna: ['', Validators.required],
-      contrasenya: ['', [Validators.required, Validators.pattern(this.patronContrasenya), Validators.minLength(8)]],
+      contrasenya: ['', [Validators.required, Validators.minLength(8),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
       Ccontrasenya: ['', [Validators.required, this.confCheck]],
       aceptarTerminos: [false, Validators.requiredTrue]
     });

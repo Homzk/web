@@ -42,7 +42,7 @@
                     <div *ngIf="contrasenya.errors && contrasenya.dirty">
                         <div *ngIf="contrasenya.hasError('required')" class="alert alert-danger">La contraseña es obligatoria</div>
                         <div *ngIf="contrasenya.hasError('minlength')" class="alert alert-danger">La contraseña debe tener mínimo 8 caracteres</div>
-                        <div *ngIf="contrasenya.hasError('pattern')" class="alert alert-danger">la contraseña debe tener letras, numeros y al menos una mayuscula</div>
+                        <div *ngIf="contrasenya.hasError('pattern')" class="alert alert-danger">la contraseña debe tener letras, numeros, una mayuscula, y un caracter especial</div>
                     </div>
                     <input type="password" class="form-control" formControlName = "contrasenya" id="contraseña" placeholder="Contraseña" aria-label="Contraseña" name="contraseña" required>
                 </div>
