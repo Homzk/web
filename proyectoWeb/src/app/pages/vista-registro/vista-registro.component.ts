@@ -30,7 +30,7 @@ export class VistaRegistroComponent implements OnInit {
   {
     this.formulario = this.formBuilder.group({
       nombreUsuario: ['', [Validators.required,Validators.minLength(4)]],
-      rut: ['', [Validators.required, Validators.pattern('/^\d{7,8}-[kK\d]{1}$/')]],
+      rut: ['', [Validators.required, Validators.pattern(/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]$/i)]],
       email: ['', [Validators.required, Validators.email]],
       region: ['', Validators.required],
       comuna: ['', Validators.required],
