@@ -10,13 +10,12 @@ export class VistaInicioSesionComponent implements OnInit{
   formulario: FormGroup;
   nombreUsuario: AbstractControl;
   contrasenya: AbstractControl;
-  patronContrasenya = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)$";
 
   constructor(private form:FormBuilder)
   {
     this.formulario = this.form.group({
       nombreUsuario : ['',[Validators.required,Validators.minLength(4)]],
-      contrasenya : ['',Validators.required,Validators.minLength(8),Validators.pattern(this.patronContrasenya)]
+      contrasenya : ['',[Validators.required,Validators.minLength(8),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
     });
     this.nombreUsuario = this.formulario.controls['nombreUsuario']
     this.contrasenya = this.formulario.controls['contrasenya']
