@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-
+const cors= require("cors")
 var jsonParser = bodyParser.json();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
+app.use(cors())
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host     : 'localhost',
@@ -76,6 +76,30 @@ app.put('/usuarios',jsonParser, (req:any, res:any)=>{
         res.send(JSON.stringify(results))
     })
 })
+
+app.get('/noticias', jsonParser, (req:any, res:any)=>{
+    connection.query('select * from noticias',function(error:any,results:any,fields:any){
+        if(error) throw error;
+        res.send(JSON.stringify(results))
+    })
+})
+
+app.post('/noticias', jsonParser, (req:any, res:any)=>{
+
+    
+    let titulo = req.body.titulo;
+    let tematica = req.body.tematica;
+    let cuerpoNoticia = req.body.cuerpoNoticia;
+    let autor = req.body.autor;
+    let replicas = req.body.replicas;
+    let fechaPublicacion = req.body.fechaPublicacion;
+    connection.query('insert into noticias (titulo,tematica,cuerpoNoticia,autor,replicas,fechaPublicacion) values (?,?,?,?,?,?)', [titulo,tematica,cuerpoNoticia,autor,replicas,fechaPublicacion], function(error:any,results:any,fields:any){
+        if(error) throw error;
+        res.send(JSON.stringify(results.insert))
+    })
+    res.send("noticia creada")
+})
+
 
 app.listen(configuracion,()=>{
     console.log("servidor activo..")

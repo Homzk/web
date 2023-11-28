@@ -30,92 +30,29 @@
                Replicas
             </div>
             <div class="EncabezadoUltimaRespuesta">
-                Ultima respuesta por
+                Ultima respuesta
             </div>
          </div>
 
          <br>
-             <div class="filaSubForo">
+             <div class="filaSubForo" *ngFor="let item of datosClientes">
 
-                <div class="Nombre tema estiloColumna">
-                    Bombillas de plástico
+                <div class="Nombre tema estiloColumna" >
+                    {{item.titulo}}
                 </div>
                 <div class="autorSubForo estiloColumna">
                     <span class="material-symbols-outlined">
                         Person
                     </span>
-                    Fernanda Campos
+                    {{item.autor}}
                 </div>
                 <div class="respuestas a foro estiloColumna">
-                    0
+                    {{item.replicas}}
                 </div>
                 <div class="ultimaRespuesta estiloColumna">
-                    Fernanda Campos <br>
-                    mier,6 de sep de 2023, 17:52
+                    {{item.fechaPublicacion}}
                 </div>
              </div>
-
-             <div class="filaSubForo">
-
-                <div class="Nombre tema estiloColumna">
-                    Bienvenida
-                </div>
-                <div class="autorSubForo estiloColumna">
-                    <span class="material-symbols-outlined">
-                        Person
-                    </span>
-                    Danilo García
-                </div>
-                <div class="respuestas a foro estiloColumna">
-                    1
-                </div>
-                <div class="ultimaRespuesta estiloColumna">
-                
-                    José Antonio López
-                    mier, 6 de sep de 2023,15:31
-                </div>
-             </div>
-
-             <div class="filaSubForo">
-
-                <div class="Nombre tema estiloColumna">
-                    Delfines avistados 
-                </div>
-                <div class="autorSubForo estiloColumna">
-                    <span class="material-symbols-outlined">
-                        Person
-                    </span>
-                    Franco Lazo
-                </div>
-                <div class="respuestas a foro estiloColumna">
-                    0
-                </div>
-                <div class="ultimaRespuesta estiloColumna">
-                    Franco Lazo <br>
-                    mar, 5 de sep de 2023, 08:03
-                </div>
-             </div>
-
-             <div class="filaSubForo">
-
-                <div class="Nombre tema estiloColumna">
-                    <a class="nav-link" routerLink = "/noticia">Mar</a>
-                </div>
-                <div class="autorSubForo estiloColumna">
-                    <span class="material-symbols-outlined">
-                        Person
-                    </span>
-                    Jorge Mora
-                </div>
-                <div class="respuestas a foro estiloColumna">
-                    0
-                </div>
-                <div class="ultimaRespuesta estiloColumna">
-                    Jorge Mora <br>
-                    lun, 4 de sep de 2023, 10:40
-                </div>
-             </div>
-
         
     </div>
 </div>
