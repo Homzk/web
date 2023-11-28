@@ -1,7 +1,12 @@
+import { decode } from "punycode";
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors= require("cors")
+const jwt = require('jsonwebtoken')
+
+const token=require('./config/config')
 var jsonParser = bodyParser.json();
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -10,8 +15,8 @@ app.use(cors())
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'root',
-    password : '',
+    user     : 'sebastian',
+    password : 'Hola1234*',
     database : 'vidaMarina'
 });
 
@@ -100,6 +105,49 @@ app.post('/noticias', jsonParser, (req:any, res:any)=>{
     res.send("noticia creada")
 })
 
+
+const rutaSegura = express.Router();
+rutaSegura.use((req:any,res:any,next:any)=>{
+    const tokens = req.headers["access-token"];
+    console.log("token usado ",tokens)
+
+    jwt.verify(tokens,token.token ,(err:any,decoded:any)=>{
+        if(err){
+            return res.json("Token invalido")
+        }else{
+            req.decoded = decoded;
+            req.authenticated = true;
+            next();
+        }
+    })
+})
+
+app.get("/token",(req:any,res:any)=>{
+    jwt.sign(
+        {
+            exp: Math.floor(Date.now()/100) + (60*60),
+            data: 'bar'},token.token,function(error:any,token:any){
+                console.log(token)
+                res.json(token)
+            }
+    )
+})
+
+
+app.get('/login',rutaSegura,(req:any,res:any)=>{
+    const correo = req.query.email
+    const contrasenya = req.query.contrasenya
+
+    connection.query('select rut,email from usuarios where email = ? and contrasenya = md5(?)',[correo,contrasenya],function(error:any,respuesta:any,fields:any){
+        if(error){
+            throw(error)
+            
+        }
+        else{
+            res.send(respuesta);
+        }
+    })
+})
 
 app.listen(configuracion,()=>{
     console.log("servidor activo..")

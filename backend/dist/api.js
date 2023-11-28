@@ -1,8 +1,11 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const jwt = require('jsonwebtoken');
+const token = require('./config/config');
 var jsonParser = bodyParser.json();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -10,8 +13,8 @@ app.use(cors());
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'sebastian',
+    password: 'Hola1234*',
     database: 'vidaMarina'
 });
 connection.connect(function (error) {
@@ -88,6 +91,42 @@ app.post('/noticias', jsonParser, (req, res) => {
         res.send(JSON.stringify(results.insert));
     });
     res.send("noticia creada");
+});
+const rutaSegura = express.Router();
+rutaSegura.use((req, res, next) => {
+    const tokens = req.headers["access-token"];
+    console.log("token usado ", tokens);
+    jwt.verify(tokens, token.token, (err, decoded) => {
+        if (err) {
+            return res.json("Token invalido");
+        }
+        else {
+            req.decoded = decoded;
+            req.authenticated = true;
+            next();
+        }
+    });
+});
+app.get("/token", (req, res) => {
+    jwt.sign({
+        exp: Math.floor(Date.now() / 100) + (60 * 60),
+        data: 'bar'
+    }, token.token, function (error, token) {
+        console.log(token);
+        res.json(token);
+    });
+});
+app.get('/login', rutaSegura, (req, res) => {
+    const correo = req.query.email;
+    const contrasenya = req.query.contrasenya;
+    connection.query('select rut,email from usuarios where email = ? and contrasenya = md5(?)', [correo, contrasenya], function (error, respuesta, fields) {
+        if (error) {
+            throw (error);
+        }
+        else {
+            res.send(respuesta);
+        }
+    });
 });
 app.listen(configuracion, () => {
     console.log("servidor activo..");

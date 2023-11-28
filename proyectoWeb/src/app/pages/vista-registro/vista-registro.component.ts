@@ -3,6 +3,8 @@ import { RegionesService } from 'src/app/services/regiones.service';
 import { ComunasService } from 'src/app/services/comunas.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { validarContrasenya } from './validar.validator';
+import { Sesion } from 'src/app/clases/sesion';
+import { AlmacenService } from 'src/app/services/almacen.service';
 @Component({
   selector: 'app-vista-registro',
   templateUrl: './vista-registro.component.html',
@@ -25,7 +27,7 @@ export class VistaRegistroComponent implements OnInit {
   aceptarTerminos: AbstractControl;
 
 
-  constructor(private regionesService: RegionesService, private comunasService: ComunasService, private formBuilder: FormBuilder) 
+  constructor(private regionesService: RegionesService, private comunasService: ComunasService, private formBuilder: FormBuilder,private almacen:AlmacenService) 
   {
     this.formulario = this.formBuilder.group({
       nombreUsuario: ['', [Validators.required,Validators.minLength(4)]],
@@ -54,6 +56,11 @@ export class VistaRegistroComponent implements OnInit {
     this.regionesService.getRegiones().subscribe((data) => {
       this.regiones = data;
     });
+
+    if(this.almacen.obtenerUsuarioActual()){
+      window.location.href="/inicio"
+    }
+
   }
 
   onRegionChange(event: Event) {

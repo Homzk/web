@@ -3,7 +3,7 @@
       <div class="col-md-6 text-center">
         <img src="../../../assets/images/ballena.png" alt="Logo de la empresa" class="logo mb-3">
         <h1 class="mb-3">Inicia sesión</h1>
-        <form [formGroup]="formulario" (ngSubmit)="inicioSesion()" novalidate>
+        <form [formGroup]="formulario" (ngSubmit)="inicioSesion()" novalidate *ngIf="!logged">
             <div class="form-group">
                 <div class="mb-3 form-check">
                     <div *ngIf="nombreUsuario.errors && nombreUsuario.dirty">
