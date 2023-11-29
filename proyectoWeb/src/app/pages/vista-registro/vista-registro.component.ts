@@ -5,6 +5,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { validarContrasenya } from './validar.validator';
 import { Sesion } from 'src/app/clases/sesion';
 import { AlmacenService } from 'src/app/services/almacen.service';
+import { RegistroService } from 'src/app/services/registro.service';
 @Component({
   selector: 'app-vista-registro',
   templateUrl: './vista-registro.component.html',
@@ -25,9 +26,9 @@ export class VistaRegistroComponent implements OnInit {
   contrasenya: AbstractControl;
   Ccontrasenya: AbstractControl;
   aceptarTerminos: AbstractControl;
+  token:string="";
 
-
-  constructor(private regionesService: RegionesService, private comunasService: ComunasService, private formBuilder: FormBuilder,private almacen:AlmacenService) 
+  constructor(private regionesService: RegionesService, private comunasService: ComunasService, private formBuilder: FormBuilder,private almacen:AlmacenService, private registro:RegistroService) 
   {
     this.formulario = this.formBuilder.group({
       nombreUsuario: ['', [Validators.required,Validators.minLength(4)]],
@@ -76,8 +77,14 @@ export class VistaRegistroComponent implements OnInit {
     return contrasenya === confirmacionContrasenya ? null : { 'confInvalid': true };
   }
 
-  registro(){
-    console.log(this.formulario.value);
+  registrar(){
+
+    this.registro.obtenerToken().subscribe(token=>{
+      this.token=token;
+      this.registro.registar(this.formulario.get("nombreUsuario").value,this.formulario.get("rut").value,this.formulario.get("email").value,this.formulario.get("region").value,this.formulario.get("comuna").value,this.formulario.get("contrasenya").value,this.token)
+      window.location.href="/login";
+    }
+    )
   }
   password(formGroup: FormGroup) {
     const contrasenya = formGroup.get('contrasenya');

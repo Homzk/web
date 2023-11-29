@@ -3,7 +3,7 @@
         <div class="col-md-6 text-center">
             <img src="../../../assets/images/tortuga-marina.png" alt="Logo de la empresa" class="logo mb-3">
             <h1 class="mb-3">Regístrate</h1>
-            <form [formGroup]="formulario" (ngSubmit)="registro()" novalidate>
+            <form [formGroup]="formulario" (ngSubmit)="registrar()" novalidate>
             <!---<form class="needs-validation" novalidate>-->
                 <div class="mb-3">
                     <div *ngIf="nombreUsuario.errors && nombreUsuario.dirty">
@@ -58,7 +58,7 @@
                     <input type="checkbox" class="form-check-input" id="aceptarTerminos" name="aceptarTerminos" required style="cursor: pointer;" formControlName ="aceptarTerminos" >
                     <label class="form-check-label" for="aceptarTerminos">Acepto los términos y condiciones</label>
                 </div>
-                <button type="submit"  (click)="registro()"   class="btn btn-primary mb-3 justify-content-center" >Registrarse</button>
+                <button type="submit"  [disabled]="formulario.invalid" href=""  class="btn btn-primary mb-3 justify-content-center" >Registrarse</button>
             </form>
         </div>
     </div>

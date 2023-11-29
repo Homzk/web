@@ -36,20 +36,6 @@ app.get('/usuarios', jsonParser, (req, res) => {
         res.send(JSON.stringify(results));
     });
 });
-app.post('/usuarios', jsonParser, (req, res) => {
-    let nombre = req.body.nombre;
-    let rut = req.body.rut;
-    let correo = req.body.email;
-    let region = req.body.region;
-    let comuna = req.body.comuna;
-    let contrasenya = req.body.contrasenya;
-    connection.query('insert into usuarios (nombre,rut,email,region,comuna,contrasenya) values (?,?,?,?,?,?)', [nombre, rut, correo, region, comuna, contrasenya], function (error, results, fields) {
-        if (error)
-            throw error;
-        res.send(JSON.stringify(results.insert));
-    });
-    res.send("dato insertado");
-});
 app.delete('/usuarios', jsonParser, (req, res) => {
     let rutEliminar = req.body.rut;
     connection.query('delete from usuarios where rut = ?', [rutEliminar], function (error, results, fields) {
@@ -92,6 +78,14 @@ app.post('/noticias', jsonParser, (req, res) => {
     });
     res.send("noticia creada");
 });
+app.delete('/noticias', jsonParser, (req, res) => {
+    let idNoticia = req.body.idNoticia;
+    connection.query('delete from noticias where idNoticia = ?', [idNoticia], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify(results));
+    });
+});
 const rutaSegura = express.Router();
 rutaSegura.use((req, res, next) => {
     const tokens = req.headers["access-token"];
@@ -119,13 +113,28 @@ app.get("/token", (req, res) => {
 app.get('/login', rutaSegura, (req, res) => {
     const correo = req.query.email;
     const contrasenya = req.query.contrasenya;
-    connection.query('select rut,email from usuarios where email = ? and contrasenya = md5(?)', [correo, contrasenya], function (error, respuesta, fields) {
+    connection.query('select rol,rut,email from usuarios where email = ? and contrasenya = md5(?)', [correo, contrasenya], function (error, respuesta, fields) {
         if (error) {
             throw (error);
         }
         else {
             res.send(respuesta);
         }
+    });
+});
+app.post('/usuarios', (req, res) => {
+    console.log("llego al api1");
+    let nombre = req.query.nombre;
+    let rut = req.query.rut;
+    let correo = req.query.email;
+    let region = req.query.region;
+    let comuna = req.query.comuna;
+    let contrasenya = req.query.contrasenya;
+    console.log("llego al api");
+    connection.query('insert into usuarios (nombre,rut,email,region,comuna,contrasenya) values (?,?,?,?,?,?)', [nombre, rut, correo, region, comuna, contrasenya], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify(results.insert));
     });
 });
 app.listen(configuracion, () => {

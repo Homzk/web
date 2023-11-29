@@ -38,6 +38,9 @@
         <li class="nav-item" id="Logins" *ngIf="logged">
           <a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="inicio" (click)="CerrarSesion()">Cerrar Sesión</a>
         </li>
+        <li class="nav-item" id="Logins" *ngIf="logged && admin">
+          <a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="" >Eliminar noticia</a>
+        </li>
       </ul>
       <form class="form-group row my-2 my-lg-0" id="barraBusqueda">
       <input class="form-control mr-sm-2" type="search" placeholder="Ingrese su búsqueda" aria-label="Search">

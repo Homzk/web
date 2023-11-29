@@ -19,9 +19,7 @@ export class LoginService {
     
     const params = new HttpParams();
     params.set("email",usuario);
-    params.set("contrasenya", password); //Create new HttpParams
-     //return this.http.get(`${environment.apiUrl}/login`,{params:params});
-     //let url=`${environment.apiUrl}/login?usuario=${JSON.stringify(usuario)}&password=${JSON.stringify(password)}`;
+    params.set("contrasenya", password); 
     return this.servicio.get(`${this.servidor}/login?email=${usuario}&contrasenya=${password}`,{ 'headers': headers });
 
 

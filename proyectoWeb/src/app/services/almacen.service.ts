@@ -23,6 +23,11 @@ export class AlmacenService {
     return (session && session.token) ? session.token : null;
   };
 
+  obtenerRol(){
+    var session: Sesion = this.cargarDatos();
+    return (session && session.rol) ? session.rol : null;
+  }
+
   CrearSesion(session:Sesion){
       this.sesionActual=session;
       this.localStorageService.setItem('datos', JSON.stringify(session));

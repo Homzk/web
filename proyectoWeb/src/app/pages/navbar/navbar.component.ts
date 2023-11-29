@@ -9,11 +9,15 @@ export class NavbarComponent implements OnInit{
 
 
   logged : Boolean= false;
+  admin : boolean =false;
   constructor(private almacen:AlmacenService) { }
 
   ngOnInit(): void {
     if (this.almacen.obtenerUsuarioActual()){
       this.logged = true;
+    }
+    if(this.almacen.obtenerUsuarioActual()){
+      this.admin = true;
     }
   }
   CerrarSesion(){

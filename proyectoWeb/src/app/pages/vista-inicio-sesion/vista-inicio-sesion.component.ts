@@ -51,7 +51,7 @@ export class VistaInicioSesionComponent implements OnInit{
              this.msg="Login no existe";
              console.log("login vacio")
         }else{
-           datos={token:datos[0].rut,usuario:datos[0].email};
+           datos={token:datos[0].rut,usuario:datos[0].email,rol:datos[0].rol};
            console.log("login correcto")
            this.almacen.CrearSesion(datos);
            window.location.href="/inicio";

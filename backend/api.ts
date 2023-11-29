@@ -41,21 +41,6 @@ app.get('/usuarios', jsonParser, (req:any, res:any)=>{
 })
 
 
-app.post('/usuarios', jsonParser, (req:any, res:any)=>{
-
-    
-    let nombre = req.body.nombre;
-    let rut = req.body.rut;
-    let correo = req.body.email;
-    let region = req.body.region;
-    let comuna = req.body.comuna;
-    let contrasenya = req.body.contrasenya;
-    connection.query('insert into usuarios (nombre,rut,email,region,comuna,contrasenya) values (?,?,?,?,?,?)', [nombre,rut,correo,region,comuna,contrasenya], function(error:any,results:any,fields:any){
-        if(error) throw error;
-        res.send(JSON.stringify(results.insert))
-    })
-    res.send("dato insertado")
-})
 
 
 app.delete('/usuarios',jsonParser, (req:any, res:any)=>{
@@ -105,6 +90,14 @@ app.post('/noticias', jsonParser, (req:any, res:any)=>{
     res.send("noticia creada")
 })
 
+app.delete('/noticias',jsonParser, (req:any, res:any)=>{
+    let idNoticia = req.body.idNoticia;
+    connection.query('delete from noticias where idNoticia = ?', [idNoticia],function(error:any,results:any,fields:any){
+        if(error) throw error;
+        res.send(JSON.stringify(results))
+    })
+})
+
 
 const rutaSegura = express.Router();
 rutaSegura.use((req:any,res:any,next:any)=>{
@@ -138,7 +131,7 @@ app.get('/login',rutaSegura,(req:any,res:any)=>{
     const correo = req.query.email
     const contrasenya = req.query.contrasenya
 
-    connection.query('select rut,email from usuarios where email = ? and contrasenya = md5(?)',[correo,contrasenya],function(error:any,respuesta:any,fields:any){
+    connection.query('select rol,rut,email from usuarios where email = ? and contrasenya = md5(?)',[correo,contrasenya],function(error:any,respuesta:any,fields:any){
         if(error){
             throw(error)
             
@@ -148,6 +141,23 @@ app.get('/login',rutaSegura,(req:any,res:any)=>{
         }
     })
 })
+
+app.post('/usuarios' , (req:any, res:any)=>{ 
+    console.log("llego al api1")
+    let nombre = req.query.nombre;
+    let rut = req.query.rut;
+    let correo = req.query.email;
+    let region = req.query.region;
+    let comuna = req.query.comuna;
+    let contrasenya = req.query.contrasenya;
+    console.log("llego al api")
+    connection.query('insert into usuarios (nombre,rut,email,region,comuna,contrasenya) values (?,?,?,?,?,?)', [nombre,rut,correo,region,comuna,contrasenya], function(error:any,results:any,fields:any){
+        if(error) throw error;
+        res.send(JSON.stringify(results.insert))
+    })
+
+})
+
 
 app.listen(configuracion,()=>{
     console.log("servidor activo..")
