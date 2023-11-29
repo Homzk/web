@@ -7,13 +7,19 @@ import { AlmacenService } from 'src/app/services/almacen.service';
 })
 export class NavbarComponent implements OnInit{
 
+
+  logged : Boolean= false;
   constructor(private almacen:AlmacenService) { }
 
   ngOnInit(): void {
-    
+    if (this.almacen.obtenerUsuarioActual()){
+      this.logged = true;
+    }
   }
   CerrarSesion(){
     this.almacen.CerrarSesion();
   }
+
+  
 }
 

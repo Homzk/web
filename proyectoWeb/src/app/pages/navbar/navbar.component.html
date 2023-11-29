@@ -28,15 +28,15 @@
             <a class="nav-link" routerLink = "/galeria">Galería</a>
         </li>
 
-        <li class="nav-item" id="Logins">
+        <li class="nav-item" id="Logins" *ngIf="!logged">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="login">Iniciar sesión</button>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!logged">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="registro">Registrarse</button>
         </li>
-        <li class="nav-item" id="Logins">
-          <a class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="inicio" (click)="CerrarSesion()">Cerrar Sesión</a>
+        <li class="nav-item" id="Logins" *ngIf="logged">
+          <a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="inicio" (click)="CerrarSesion()">Cerrar Sesión</a>
         </li>
       </ul>
       <form class="form-group row my-2 my-lg-0" id="barraBusqueda">
