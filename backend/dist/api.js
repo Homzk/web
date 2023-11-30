@@ -131,7 +131,7 @@ app.post('/usuarios', (req, res) => {
     let comuna = req.query.comuna;
     let contrasenya = req.query.contrasenya;
     console.log("llego al api");
-    connection.query('insert into usuarios (nombre,rut,email,region,comuna,contrasenya) values (?,?,?,?,?,?)', [nombre, rut, correo, region, comuna, contrasenya], function (error, results, fields) {
+    connection.query('insert into usuarios (nombre,rut,email,region,comuna,contrasenya) values (?,?,?,?,?,md5(?))', [nombre, rut, correo, region, comuna, contrasenya], function (error, results, fields) {
         if (error)
             throw error;
         res.send(JSON.stringify(results.insert));
