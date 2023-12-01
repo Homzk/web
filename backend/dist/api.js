@@ -13,9 +13,9 @@ app.use(cors());
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'gonza',
-    password: 'Hola1234@',
-    database: 'proyecto'
+    user: 'root',
+    password: '',
+    database: 'vidamarina'
 });
 connection.connect(function (error) {
     if (error) {
@@ -57,14 +57,6 @@ app.put('/usuarios', jsonParser, (req, res) => {
         res.send(JSON.stringify(results));
     });
 });
-app.get('/foro', jsonParser, (req, res) => {
-    connection.query('select * from foro', function (error, results, fields) {
-        if (error)
-            throw error;
-        res.send(JSON.stringify(results));
-    });
-});
-<<<<<<< Updated upstream
 app.get('/noticiasPorId', jsonParser, (req, res) => {
     let id = req.query.idNoticia;
     connection.query('select * from noticias where idNoticia = ?', [id], function (error, results, fields) {
@@ -74,16 +66,13 @@ app.get('/noticiasPorId', jsonParser, (req, res) => {
     });
 });
 app.post('/noticias', jsonParser, (req, res) => {
-=======
-app.post('/foro', jsonParser, (req, res) => {
->>>>>>> Stashed changes
-    let titulo = req.body.titulo;
-    let tematica = req.body.tematica;
-    let cuerpoNoticia = req.body.cuerpoNoticia;
-    let autor = req.body.autor;
-    let replicas = req.body.replicas;
-    let fechaPublicacion = req.body.fechaPublicacion;
-    connection.query('insert into foro (titulo,tematica,cuerpoNoticia,autor,replicas,fechaPublicacion) values (?,?,?,?,?,?)', [titulo, tematica, cuerpoNoticia, autor, replicas, fechaPublicacion], function (error, results, fields) {
+    let titulo = req.query.titulo;
+    let tematica = req.query.tematica;
+    let cuerpoNoticia = req.query.cuerpoNoticia;
+    let autor = req.query.autor;
+    let replicas = req.query.replicas;
+    let fechaPublicacion = req.query.fechaPublicacion;
+    connection.query('insert into noticias (titulo,tematica,cuerpoNoticia,autor,replicas,fechaPublicacion) values (?,?,?,?,?,?)', [titulo, tematica, cuerpoNoticia, autor, replicas, fechaPublicacion], function (error, results, fields) {
         if (error)
             throw error;
         res.send(JSON.stringify(results.insert));

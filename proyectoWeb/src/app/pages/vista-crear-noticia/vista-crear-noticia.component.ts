@@ -32,7 +32,7 @@ export class VistaCrearNoticiaComponent {
     this.servicio.obtenerToken().subscribe(token=>{
       this.token=token;
       this.servicio.noticia(this.formulario.get("titulo").value, this.formulario.get("tematica").value, this.formulario.get("cuerpo").value,this.token)
-      window.location.href="/crearNoticia";
+      
     }
     )
   }
