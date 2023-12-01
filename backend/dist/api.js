@@ -57,13 +57,14 @@ app.put('/usuarios', jsonParser, (req, res) => {
         res.send(JSON.stringify(results));
     });
 });
-app.get('/noticias', jsonParser, (req, res) => {
-    connection.query('select * from noticias', function (error, results, fields) {
+app.get('/foro', jsonParser, (req, res) => {
+    connection.query('select * from foro', function (error, results, fields) {
         if (error)
             throw error;
         res.send(JSON.stringify(results));
     });
 });
+<<<<<<< Updated upstream
 app.get('/noticiasPorId', jsonParser, (req, res) => {
     let id = req.query.idNoticia;
     connection.query('select * from noticias where idNoticia = ?', [id], function (error, results, fields) {
@@ -73,22 +74,25 @@ app.get('/noticiasPorId', jsonParser, (req, res) => {
     });
 });
 app.post('/noticias', jsonParser, (req, res) => {
+=======
+app.post('/foro', jsonParser, (req, res) => {
+>>>>>>> Stashed changes
     let titulo = req.body.titulo;
     let tematica = req.body.tematica;
     let cuerpoNoticia = req.body.cuerpoNoticia;
     let autor = req.body.autor;
     let replicas = req.body.replicas;
     let fechaPublicacion = req.body.fechaPublicacion;
-    connection.query('insert into noticias (titulo,tematica,cuerpoNoticia,autor,replicas,fechaPublicacion) values (?,?,?,?,?,?)', [titulo, tematica, cuerpoNoticia, autor, replicas, fechaPublicacion], function (error, results, fields) {
+    connection.query('insert into foro (titulo,tematica,cuerpoNoticia,autor,replicas,fechaPublicacion) values (?,?,?,?,?,?)', [titulo, tematica, cuerpoNoticia, autor, replicas, fechaPublicacion], function (error, results, fields) {
         if (error)
             throw error;
         res.send(JSON.stringify(results.insert));
     });
     res.send("noticia creada");
 });
-app.delete('/noticias', jsonParser, (req, res) => {
+app.delete('/foro', jsonParser, (req, res) => {
     let idNoticia = req.body.idNoticia;
-    connection.query('delete from noticias where idNoticia = ?', [idNoticia], function (error, results, fields) {
+    connection.query('delete from foro where idNoticia = ?', [idNoticia], function (error, results, fields) {
         if (error)
             throw error;
         res.send(JSON.stringify(results));
@@ -161,6 +165,24 @@ app.post('/alertas', (req, res) => {
             throw error;
         res.send(JSON.stringify(results.insert));
     });
+});
+app.get('/noticias', jsonParser, (req, res) => {
+    connection.query('select * from noticias', function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify(results));
+    });
+});
+app.post('/noticias', jsonParser, (req, res) => {
+    let titulo = req.query.titulo;
+    let tematica = req.query.tematica;
+    let cuerpo = req.query.cuerpo;
+    connection.query('insert into noticias (titulo,tematica,cuerpo) values (?,?,?)', [titulo, tematica, cuerpo], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify(results.insert));
+    });
+    res.send("noticia creada");
 });
 app.listen(configuracion, () => {
     console.log("servidor activo..");

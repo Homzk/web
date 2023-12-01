@@ -2,35 +2,16 @@
     <div class="container-img">
         <img src="../../../assets/images/noticias.png" class="imgnoticia">
     </div>
-
+    
     <h1>Crear noticia</h1>
-
-    <div>
-        <input type="text" id="titulo" name="titulo" class="container-titulo" placeholder="Título" required>
-    </div>
-
-    <div>
-        <input type="text" id="temática" name="temática" class="container-tematica" placeholder="Temática" required>
-    </div>
-
-    <div>
-        <textarea type="text" id="cuerpo" name="cuerpo" rows="4" class="container-cuerpo" placeholder="Cuerpo de la noticia" required></textarea>
-    </div>
-
-    <br>
-    <br>
-
-    <div class="container-img2">
-        <img src="../../../assets/images/clip-de-papel.png" class="imgclip">
+    <form [formGroup]="formulario" (ngSubmit)="crearNoticia()" novalidate>
+        <input type="text" id="titulo" name="titulo" class="container-titulo" placeholder="Título" aria-label="titulo" formControlName = "titulo" ngModel minlength="4">
         
-                        
-    </div>
-
-    <div>
-        <button class="boton-adjuntarimg">Insertar imágen</button>
-        <button class="boton-enviar">Enviar noticia</button>
-    </div>
+        <input type="text" id="temática" name="temática" class="container-tematica" placeholder="Temática" aria-label="tematica" formControlName = "tematica" ngModel required>
+        
+        <textarea type="text" id="cuerpo" name="cuerpo" rows="4" class="container-cuerpo" placeholder="Cuerpo de la noticia" aria-label="cuerpo" formControlName = "cuerpo" ngModel required></textarea>
+        
+        <button type="submit" href=""  class="btn btn-primary mb-3 justify-content-center" >Enviar</button>
+    </form>
     
-    
-
 </div>
