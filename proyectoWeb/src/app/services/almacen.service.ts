@@ -25,7 +25,13 @@ export class AlmacenService {
 
   obtenerRol(){
     var session: Sesion = this.cargarDatos();
-    return (session && session.rol) ? session.rol : null;
+    console.log(session.rol)
+    if (session.rol =="usuario") 
+      return null
+    else{
+      return (session && session.rol);
+    }
+    
   }
 
   CrearSesion(session:Sesion){

@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit{
     if (this.almacen.obtenerUsuarioActual()){
       this.logged = true;
     }
-    if(this.almacen.obtenerUsuarioActual()){
+    if(this.almacen.obtenerRol()){
       this.admin = true;
     }
   }
