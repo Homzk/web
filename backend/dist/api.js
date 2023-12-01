@@ -13,9 +13,9 @@ app.use(cors());
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'sebastian',
-    password: 'Hola1234*',
-    database: 'vidaMarina'
+    user: 'gonza',
+    password: 'Hola1234@',
+    database: 'proyecto'
 });
 connection.connect(function (error) {
     if (error) {
@@ -132,6 +132,23 @@ app.post('/usuarios', (req, res) => {
     let contrasenya = req.query.contrasenya;
     console.log("llego al api");
     connection.query('insert into usuarios (nombre,rut,email,region,comuna,contrasenya) values (?,?,?,?,?,md5(?))', [nombre, rut, correo, region, comuna, contrasenya], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify(results.insert));
+    });
+});
+app.get('/alertas', (req, res) => {
+    connection.query('select * from alertas', function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify(results));
+    });
+});
+app.post('/alertas', (req, res) => {
+    let titulo = req.query.titulo;
+    let descripcion = req.query.descripcion;
+    console.log("llego al api");
+    connection.query('insert into alertas (titulo,descripcion) values (?,?)', [titulo, descripcion], function (error, results, fields) {
         if (error)
             throw error;
         res.send(JSON.stringify(results.insert));

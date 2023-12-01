@@ -1,64 +1,73 @@
+
 li {
-    display: inline-block;
-    margin: 0 50px;
-  }
+  display: inline-block;
+  margin: 0 50px;
+}
+
+.container-frame {
+  border: 2px solid #090D65;
+  padding: 20px;
+  width: 450px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.container-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgadvertencia {
+  width: 60px;
+  height: auto;
+  margin: 0%;
+}
+
+h1 {
+  text-align: center;
+  color: #090D65;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.container-alerta {
+  display: flex;
+  justify-content: center;
+}
+
+.caja-alerta {
+  width: 350px;
+  height: 250px;
+  padding: 10px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #B4B4B4;
+  font-size: 16px;
+  background-color: #D9D9D9;
+  font-weight: normal;
+}
+
+.container-mensaje {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: black;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+button{
+  margin-top: 20px;
+  margin-left: 28px;
+}
   
-  .container-frame {
-    border: 2px solid #090D65;
-    padding: 20px;
-    width: 450px;
-    margin: 0 auto;
-    margin-top: 30px;
-  }
-  
-  .container-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .imgadvertencia {
-    width: 60px;
-    height: auto;
-    margin: 0%;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #090D65;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size: 36px;
-  }
-  
-  .container-alerta {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .caja-alerta {
-    width: 350px;
-    height: 250px;
-    padding: 10px;
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-    color: #B4B4B4;
-    font-size: 16px;
-    background-color: #D9D9D9;
-    font-weight: normal;
-  }
-  
-  .container-mensaje {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    color: black;
-    font-size: 15px;
-    font-weight: normal;
-  }
-  
-  .boton {
-    font-size: 14px;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
+
+
+#titulo{
+  width: 350px;
+  text-align: center;
+  margin-left: 28px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
