@@ -23,7 +23,7 @@ export class CrearnoticiaService {
     params.set("autor", autor); 
     params.set("replicas", replicas); 
     console.log(`${titulo}${tematica}${cuerpo}`)
-    const solicitud = this.servicio.post(`${this.servidor}/noticias?titulo=${titulo}&tematica=${tematica}&cuerpoNoticia=${cuerpo}&autor=${autor}&replicas=${replicas}&replicas=${replicas}`,{ 'headers': headers })
+    const solicitud = this.servicio.post(`${this.servidor}/noticias?titulo=${titulo}&tematica=${tematica}&cuerpoNoticia=${cuerpo}&autor=${autor}&replicas=${replicas}`,{ 'headers': headers })
     solicitud.subscribe()
   }
   obtenerToken():Observable<any>{

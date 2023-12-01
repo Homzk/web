@@ -12,9 +12,9 @@ app.use(cors())
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'vidamarina'
+    user     : 'gonza',
+    password : 'Hola1234@',
+    database : 'vidaMarina'
 });
 connection.connect(function(error:any){
     if (error) {
@@ -80,9 +80,9 @@ app.post('/noticias', jsonParser, (req:any, res:any)=>{
     })
     res.send("noticia creada")
 })
-app.delete('/foro',jsonParser, (req:any, res:any)=>{
+app.delete('/noticias',jsonParser, (req:any, res:any)=>{
     let idNoticia = req.body.idNoticia;
-    connection.query('delete from foro where idNoticia = ?', [idNoticia],function(error:any,results:any,fields:any){
+    connection.query('delete from noticias where idNoticia = ?', [idNoticia],function(error:any,results:any,fields:any){
         if(error) throw error;
         res.send(JSON.stringify(results))
     })
@@ -162,18 +162,7 @@ app.get('/noticias', jsonParser, (req:any, res:any)=>{
         res.send(JSON.stringify(results))
     })
 })
-app.post('/noticias', jsonParser, (req:any, res:any)=>{
-    
-    let titulo = req.query.titulo;
-    let tematica = req.query.tematica;
-    let cuerpo = req.query.cuerpo;
-    
-    connection.query('insert into noticias (titulo,tematica,cuerpo) values (?,?,?)', [titulo,tematica,cuerpo], function(error:any,results:any,fields:any){
-        if(error) throw error;
-        res.send(JSON.stringify(results.insert))
-    })
-    res.send("noticia creada")
-})
+
 app.listen(configuracion,()=>{
     console.log("servidor activo..")
 })
