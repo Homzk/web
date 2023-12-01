@@ -74,6 +74,14 @@ app.get('/noticias', jsonParser, (req:any, res:any)=>{
     })
 })
 
+app.get('/noticiasPorId', jsonParser, (req:any, res:any)=>{
+    let id = req.query.idNoticia
+    connection.query('select * from noticias where idNoticia = ?',[id],function(error:any,results:any,fields:any){
+        if(error) throw error;
+        res.send(JSON.stringify(results))
+    })
+})
+
 app.post('/noticias', jsonParser, (req:any, res:any)=>{
 
     

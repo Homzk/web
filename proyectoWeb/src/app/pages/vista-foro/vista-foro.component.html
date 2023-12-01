@@ -3,7 +3,7 @@
 <div class="container" style="max-width: 1400px;">
             
     <br>
-    <div class="">
+    <div class="Foro" id="Foro">
         <ol>
         <div class="bienvenidaForo">
             
@@ -35,10 +35,10 @@
          </div>
 
          <br>
-             <div class="filaSubForo" *ngFor="let item of datosClientes">
-
-                <div class="Nombre tema estiloColumna" >
-                    {{item.titulo}}
+             <div class="filaSubForo" *ngFor="let item of datosNoticias">
+                <div class="Nombre tema estiloColumna"  (click)="abrirNoticia(item.idNoticia)"  currentItem="item.idNoticia">
+                   <a [routerLink]="['/noticia-foro',{idNoticia:item.idNoticia}]" onclick="return false"> {{item.titulo}}</a>
+                   
                 </div>
                 <div class="autorSubForo estiloColumna">
                     <span class="material-symbols-outlined">
@@ -53,6 +53,7 @@
                     {{item.fechaPublicacion | date:'short'}}
                 </div>
              </div>
-        
+   
     </div>
+    
 </div>

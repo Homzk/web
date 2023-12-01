@@ -64,6 +64,14 @@ app.get('/noticias', jsonParser, (req, res) => {
         res.send(JSON.stringify(results));
     });
 });
+app.get('/noticiasPorId', jsonParser, (req, res) => {
+    let id = req.query.idNoticia;
+    connection.query('select * from noticias where idNoticia = ?', [id], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify(results));
+    });
+});
 app.post('/noticias', jsonParser, (req, res) => {
     let titulo = req.body.titulo;
     let tematica = req.body.tematica;

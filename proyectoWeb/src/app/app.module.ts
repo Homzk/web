@@ -13,6 +13,7 @@ import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-in
 import { FormsModule, ReactiveFormsModule,ValidationErrors,ValidatorFn} from '@angular/forms';
 import { VistaRegistroComponent } from './pages/vista-registro/vista-registro.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NoticiaForoComponent } from './pages/noticia-foro/noticia-foro.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     VistaInicioComponent,
     VistaInicioSesionComponent,
     VistaRegistroComponent,
+    NoticiaForoComponent,
   ],
   imports: [
     BrowserModule,

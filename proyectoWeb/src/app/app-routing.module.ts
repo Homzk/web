@@ -8,6 +8,7 @@ import { VistaCrearNoticiaComponent } from './pages/vista-crear-noticia/vista-cr
 import { VistaInicioComponent } from './pages/vista-inicio/vista-inicio.component';
 import { VistaInicioSesionComponent } from './pages/vista-inicio-sesion/vista-inicio-sesion.component';
 import { VistaRegistroComponent } from './pages/vista-registro/vista-registro.component';
+import { NoticiaForoComponent } from './pages/noticia-foro/noticia-foro.component';
 const routes: Routes = [
   {
     path: 'noticia', component: VistaNoticiaComponent },
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path:'registro' , component: VistaRegistroComponent
+  },
+  {
+    path:'noticia-foro',component: NoticiaForoComponent
   }
 ];
 
